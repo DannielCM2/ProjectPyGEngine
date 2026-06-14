@@ -1,7 +1,4 @@
-from engine.events import Input
-from engine.renderer import Renderer
-from engine.scene_manager import SceneManager
-from engine.window import Window
+from engine import Window, Renderer, Input, SceneManager
 import time
 
 class Game:
@@ -33,7 +30,7 @@ class Game:
             self.window.poll_events()
             self.handle_input()
             self.update(delta_time)
-            self.renderer.render(self.scene_manager.scene_stack[-1])
+            self.renderer.render(self.scene_manager.scene_stack)
             self.window.swap_buffers()
 
             frame_time = time.perf_counter() - frame_start
