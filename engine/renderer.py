@@ -4,7 +4,9 @@ class Renderer:
 
     def render(self, scene=None):
         self.ctx.clear(0.1, 0.1, 0.1)
-        
+
+        scene = scene[-1] if scene else None
+
         if scene is None:
             return
                 
