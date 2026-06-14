@@ -1,3 +1,3 @@
-from game import pygengine
+from game import start_game
 
-pygengine.start_game()
+start_game()
