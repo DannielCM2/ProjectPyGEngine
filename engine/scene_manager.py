@@ -1,5 +1,3 @@
-from .scene import Scene
-
 class SceneManager:
     def __init__(self, engine):
         self.scene_stack = []
@@ -13,12 +11,11 @@ class SceneManager:
         if scene is None:
             raise ValueError(f"Scene '{name}' not found")
 
-        self.scene_stack.append(scene)
-        scene.on_enter()
+        self.scene_stack.append(scene(self.engine))
 
     def unload_scene(self):
         if self.scene_stack:
             self.scene_stack.pop()
 
     def cache_scene(self, name, scene):
-        self.scene_cache[name] = scene(self.engine)
+        self.scene_cache[name] = scene
